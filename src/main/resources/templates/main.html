@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Моя база</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div>
+        <form method="post" action="/main">
+            <input type="text" name="text" placeholder="Введите сообщение"/>
+            <input type="text" name="address" placeholder="Адрес"/>
+            <input type="number" name="price" placeholder="Цена"/>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+    <p>Список сообщений:</p>
+    <form method="post" action="filter">
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
+    </form>
+    <p></p>
+    <div th:each="key : ${messages}">
+        <span th:text="${key.id} + '  ' + ${key.text} + '  ' + ${key.address} + '  ' + ${key.price}"></span>
+    </div>﻿
+</body>
+</html>
